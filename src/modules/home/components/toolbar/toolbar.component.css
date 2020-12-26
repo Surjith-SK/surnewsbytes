@@ -1,0 +1,17 @@
+.active {
+    color: orange;
+}
+
+.toolbar {
+    background-color: black;
+}
+
+.sticky {
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 1000;
+    opacity: 1;
+    background: white;
+}

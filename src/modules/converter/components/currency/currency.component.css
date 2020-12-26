@@ -1,0 +1,21 @@
+::ng-deep .mat-snack-bar-container.success,
+::ng-deep .mat-simple-snackbar-action {
+    background-color: green;
+    color: white;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix {
+    top: -0.3em !important;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.mg-lft {
+    padding-left: 25% !important;
+}
+
+h2 a {
+    text-decoration: none;
+}

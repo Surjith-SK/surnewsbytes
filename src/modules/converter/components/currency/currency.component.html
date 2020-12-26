@@ -1,0 +1,48 @@
+<sur-toolbar></sur-toolbar>
+<section [ngStyle]="{'margin-top':'120px'}" [ngStyle.xs]="{'margin-top':'154px'}">
+    <h1 class="txt-center">Welcome to Surjith's CryptoCurrency Converter</h1>
+
+    <div>
+
+        <div fxFlex="100%" fxLayout="row" fxLayoutAlign="center">
+
+            <mat-card fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayout="column" class="mat-elevation-z8">
+                <mat-form-field appearance="standard">
+                    <mat-label>Enter Value</mat-label>
+                    <input type="number" (input)="findCurrency()" matInput placeholder="12" name="value" [(ngModel)]="value">
+                </mat-form-field>
+
+                <div fxFlex="100%" fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px">
+
+
+                    <mat-form-field appearance="fill">
+                        <mat-select (selectionChange)="findCurrency()" [(value)]="selectedOne">
+                            <mat-option [value]="option" *ngFor="let option of CountryData.data">{{ option.name + ' ' + '(' + option.symbol + ')' }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div fxFlex="100%" fxLayout="row" fxLayoutAlign="space-around center">
+                        <button mat-icon-button (click)="swap()"><mat-icon>swap_vert</mat-icon></button>
+                    </div>
+
+
+                    <mat-form-field appearance="fill">
+                        <mat-select (selectionChange)="findCurrency()" [(value)]="selectedTwo">
+                            <mat-option [value]="option" *ngFor="let option of CryptoCurrencyData.data">{{ option.name + ' ' + '(' + option.symbol + ')' }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="100%" *ngIf="convertedValue" fxLayout="column" fxLayoutAlign="space-around center">
+                    <div><b>{{value}}</b> {{ selectedOne.name +' ' + '(' + selectedOne.symbol + ')' }}</div>
+                    <div> = </div>
+                    <div>
+                        <mat-spinner [diameter]="15" *ngIf="loading"></mat-spinner><b *ngIf="!loading">{{convertedValue}}</b> {{ selectedTwo.name + ' ' + '(' + selectedTwo.symbol + ')' }}</div>
+                </div>
+            </mat-card>
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <h2 class="txt-center">Know more about Surjith ? <a href="https://surjith-portfolio.web.app/">Click here</a> </h2>
+
+</section>

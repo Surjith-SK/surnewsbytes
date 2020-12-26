@@ -1,0 +1,16 @@
+<div fxFlex fxLayoutAlign="space-between" fxLayout="row wrap" fxLayoutAlign.xs="center" class="sticky mat-elevation-z2">
+    <mat-form-field *ngIf="router.url === '/home'" appearance="outline" [ngStyle]="{'margin':'20px'}" [ngStyle.xs]="{'margin':'0 auto'}">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search by name" name="searchValue" (input)="search()" [(ngModel)]="searchTerm">
+        <button mat-icon-button matSuffix><mat-icon>search</mat-icon></button>
+    </mat-form-field>
+    <div *ngIf="router.url !== '/home'"></div>
+    <div [ngStyle]="{'margin':'20px'}">
+        <button mat-raised-button [routerLink]="['/home']" [routerLinkActive]="'active'">
+        Home
+    </button> &nbsp;
+        <button mat-raised-button [routerLink]="['/converter']" [routerLinkActive]="'active'">
+        Converter 
+    </button>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.box-shadow {
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+table tr td:first-child {
+    font-weight: 800;
+}
+
+table tr td:last-child {
+    padding-left: 10px
+}
+
+::ng-deep .mat-snack-bar-container.success,
+::ng-deep .mat-simple-snackbar-action {
+    background-color: green;
+    color: white;
+}

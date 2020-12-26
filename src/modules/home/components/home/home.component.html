@@ -1,0 +1,52 @@
+<sur-toolbar (searchValue)="searchTerm($event)"></sur-toolbar>
+<section [ngStyle]="{'margin-top':'120px'}" [ngStyle.xs]="{'margin-top':'154px'}">
+    <mat-paginator [disabled]="disabled" [length]="allData?.data?.length" [pageSize]="pageSize" [pageSizeOptions]="[8, 16, 32, 100]" (page)="OnPageChange($event)">
+    </mat-paginator>
+    <div *ngIf="loading" [ngStyle]="{'padding-left':'50px'}">
+        <mat-spinner [diameter]="100"></mat-spinner>
+    </div>
+    <div>
+        <div fxFlex="100%" fxLayout="row wrap" fxLayoutAlign="space-around center">
+            <p *ngIf="!listData?.length && !loading"><i>No data to show</i></p>
+            <mat-card *ngFor="let item of listData " class="box-shadow" fxFlex="23%" fxFlex.xs="96%" fxFlex.sm="48%" [ngStyle]="{'margin-top':'10px'}">
+                <img src="{{idsData.data[item.id].logo}}">
+                <table>
+                    <tr>
+                        <td>Id</td>
+                        <td> {{item.id }}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{item.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Status/Scrip</td>
+                        <td>{{idsData.data[item.id].status }}</td>
+                    </tr>
+                    <tr>
+                        <td>Current Trade Price</td>
+                        <td>{{item.quote.USD.price }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Percentage 24h </td>
+                        <td [ngStyle]="{'display':'flex'}">{{item.quote.USD.percent_change_24h }}
+                            <mat-icon [ngStyle]="item.quote.USD.percent_change_24h
+                            < 0 ? {'color':'red'} : {'color':'green'}">{{item.quote.USD.percent_change_24h
+                                < 0 ? 'south_east' : 'north_east'}}</mat-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Percentage 7d</td>
+                        <td>{{item.quote.USD.percent_change_7d }}</td>
+                    </tr>
+                </table>
+            </mat-card>
+
+        </div>
+    </div>
+    <br>
+
+    <mat-paginator [disabled]="disabled" [length]="allData?.data?.length" [pageSize]="pageSize" [pageSizeOptions]="[8, 16, 32, 100]" (page)="OnPageChange($event)">
+    </mat-paginator>
+</section>
